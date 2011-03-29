@@ -15,6 +15,12 @@ clean:
 test: all
 	./libc-bench
 
+relink:
+	rm -f libc-bench
+	make all
+
+retest: relink test
+
 libc-bench: $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
